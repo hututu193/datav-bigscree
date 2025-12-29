@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './shared/style.scss'
 import App from './App';
 
 const RATIO = 16/9
-function applScreenSize(){
+function applyScreenSize(){
   const {clientWidth, clientHeight} = document.documentElement
-  const pageWidth = clientWidth / clientHeight > RATIO ? clientHeight * RATIO : clientWidth
+  const pageWidth = clientWidth / clientHeight > RATIO ? clientHeight * RATIO : clientWidth;
+  (window as any).pageWidth = pageWidth
   const pageHeight = pageWidth / RATIO
 
   document.documentElement.style.fontSize = `${pageWidth/ 100}px`
@@ -19,8 +20,8 @@ function applScreenSize(){
   }
 }
 
-applScreenSize()
-window.addEventListener('resize', applScreenSize)
+applyScreenSize()
+window.addEventListener('resize', applyScreenSize)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

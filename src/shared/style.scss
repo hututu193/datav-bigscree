@@ -1,0 +1,43 @@
+@import "helper";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-weight: normal; }
+*::before { box-sizing: border-box; }
+*::after { box-sizing: border-box; }
+
+body {
+  font-family: $font-hei, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  background: #cfd2e1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* 不出现滚动条 */
+
+  // background: #00020b;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#root {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  // background-color: rgb(209, 226, 146);
+}
+
+.App { 
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 { font-size: 16px; }
