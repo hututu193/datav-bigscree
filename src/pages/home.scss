@@ -8,8 +8,6 @@ $bg: #0c1139;
 $glowOuter: rgba(7, 100, 188, 0.25);
 $glowInner: rgba(7, 100, 188, 0.15);
 
-
-
 /* 角标两层颜色 */
 // $cornerOuter: #0e325f; // 外层暗
 
@@ -19,7 +17,6 @@ $cornerInner: #0d4483; // 内层亮
 /* 角标尺寸 */
 $lenOuter: px(18);
 $thickOuter: px(2);
-
 
 /* 内层角标往里缩多少 */
 $inset: px(6);
@@ -38,12 +35,28 @@ $inset: px(6);
   > header {
     height: px(99);
     background-size: cover;
+    width: px(2420);
+    margin: 0 auto;
   }
+
+> footer {
+  height: px(68);
+    border: 1px solid #0d2d59;
+    margin: px(20) 0 1px;
+    border-radius: 4px;
+    background: #0c0d2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
   > main {
     padding-top: px(30);
     flex: 1;
     min-height: 0;
+
+    width: px(2420);
+    margin: 0 auto;
 
     display: grid;
     grid-template:
@@ -55,11 +68,27 @@ $inset: px(6);
     > section {
       text-align: center;
       min-height: 0; // 重要：别用你之前那个 min-height:200，会把布局搞成一条条
+      min-width: 0;
     }
 
-    > .section1 { grid-area: box1; }
-    > .section2 { grid-area: box2; }
-    > .section3 { grid-area: box3; }
+    > .section1 { grid-area: box1; 
+      display: flex;
+      flex-direction: column;
+      gap: px(20);
+    }
+    > .section2 {
+      grid-area: box2;
+      min-height: 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: px(20);
+    }
+ 
+    
+    
+    > .section3 { grid-area: box3; 
+    }
     > .section4 { grid-area: box4; }
     > .section5 { grid-area: box5; }
 
@@ -116,17 +145,25 @@ $inset: px(6);
           // 角标单独发光（不会让整圈边框变亮）
           filter: drop-shadow(0 0 px(6) rgba(60, 200, 255, .55));
         }
-      }
-      
+    }
 
-    .管辖统计{
-        height: px(315);
+    > .section2 > * {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    
+      
+    .管辖统计, .破获排名 {
+        // height: px(315);
+        flex: 1; min-height: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+
         h2 {
             flex-shrink: 0;
-
             border: 1px solid #0a5299;
             display: inline-block;
             border-bottom-left-radius: 4px;
@@ -135,12 +172,34 @@ $inset: px(6);
         line-height: px(24);
         padding: px(10) px(28);
         text-shadow: 0 0 px(3) white;
-        }
-        .chart {
-            flex: 1;
-            width: 100%;
-            border: 1px solid red;
-        }
+        }       
     }
+
+    .破获排名{
+      // height: px(423);
+     
+      .legend {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 0 px(20) px(10);
+        >.first, >.second {
+          display: inline-block;
+          width: px(18);
+          height: px(12);
+          background: red;
+          margin: 0 px(10);
+        }
+
+        .first{
+          background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);;
+        }
+        .second {
+          background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
+        }
+      }
+    }
+
   }
 }
