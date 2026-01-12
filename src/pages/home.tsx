@@ -1,15 +1,17 @@
 import './home.scss'
-import headerBg from '../images/header.png'
-import {Chart1} from '../components/char-1'
-import {Chart2} from '../components/char-2'
-import { Chart3 } from '../components/char-3'
-import { Chart4 } from '../components/char-4'
+import { Header } from '../components/header'
+import {Chart1} from '../components/charts/char-1'
+import {Chart2} from '../components/charts/char-2'
+import { Chart3 } from '../components/charts/char-3'
+import { Chart4 } from '../components/charts/char-4'
+import { Chart5 } from '../components/charts/char-5'
 
 export const Home = () =>{
     
     return (
         <div className="home">
-            <header style={{backgroundImage: `url(${headerBg})`}}></header>
+            
+            <Header/>
             <main>
                 <section className="bordered section1">                   
                      <Chart1/>   
@@ -21,7 +23,7 @@ export const Home = () =>{
                 </section>
                 
                 <section className="bordered section3">
-
+                    <Chart5/>
                 </section>
                 <section className="bordered section4">
 
